@@ -1,0 +1,54 @@
+/*.card-container*/
+mat-card {
+  height: 400px;
+  width: 300px;
+  background-color: #cdcdcd;
+  margin-top: 150px;
+  border-radius: 20px;
+
+  .avatar-content {
+    position: relative;
+    top: -50px;
+    text-align: center;
+
+    .avatar {
+      height: 100px;
+      width: 100px;
+      background-color: #fff;
+      border-radius: 50%;
+      margin: 0 auto;
+
+      img {
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+      }
+    }
+    .user-full-name {
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    .user-address, .phone-number, .email-address {
+        padding: 10px 0;
+    }
+  }
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.verified {
+  color: #008000;
+  i {
+    margin-top: 3px;
+    vertical-align: bottom;
+  }
+}
+
+@media (max-width: 575.98px) {
+  mat-card {
+    width: 94%;
+  }
+}
