@@ -1,10 +1,14 @@
-<div class="container">
+<div class="container user-profile-container">
     <div class="row" *ngIf="user">
         <!--<div class="card-container">-->
         <mat-card *ngFor="let user of user">
             <div class="avatar-content">
                 <div class="avatar">
                     <img [src]="user.avatarurl" />
+                </div>
+                <!-- Edit Button-->
+                <div class="edit" *ngIf="!openEditMode">
+                    <button mat-fab (click)="editUserInfo()"><i class="material-icons">edit</i></button>
                 </div>
                 <!-- Full Name -->
                 <div class="user-full-name">
@@ -19,15 +23,37 @@
                 <!-- Phone Number -->
                 <div class="phone-number">
                     <div><span class="card-title">Phone Number:</span><br />{{user.phone}}</div>
-                    <div class="verified" *ngIf="user.phoneVerify"><i class="material-icons">check_circle</i><span> Verified</span></div>
+                    <div class="verified" *ngIf="user.phoneVerify"><i class="material-icons">check_circle</i><span>
+                            Verified</span></div>
                 </div>
                 <!-- Email Address -->
                 <div class="email-address">
                     <div><span class="card-title">Email Address:</span><br />{{user?.email}}</div>
-                    <div class="verified" *ngIf="user.emailVerify"><i class="material-icons">check_circle</i><span> Verified</span></div>
+                    <div class="verified" *ngIf="user.emailVerify"><i class="material-icons">check_circle</i><span>
+                            Verified</span></div>
                 </div>
             </div>
         </mat-card>
         <!--</div>-->
     </div>
+
+    <form [formGroup]="userEditForm" *ngIf="openEditMode">
+        <!-- Address 1 -->
+        <mat-form-field>
+            <input type="text" matInput formControlName="address1" placeholder="Address 1"/>
+        </mat-form-field>
+        <!-- Address 2 -->
+        <mat-form-field>
+            <input type="text" matInput formControlName="address2" placeholder="Address 2"/>
+        </mat-form-field>
+        <!-- Phone Number -->
+        <mat-form-field>
+            <input type="text" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" matInput formControlName="phone" placeholder="Phone Number"/>
+        </mat-form-field>
+        <!-- Email Address -->
+        <mat-form-field>
+            <input type="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" matInput formControlName="email" placeholder="Email Address"/>
+        </mat-form-field>
+        <button type="submit" mat-raised-button [disabled]="!userEditForm.valid">Submit</button>
+    </form>
 </div>
