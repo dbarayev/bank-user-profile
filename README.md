@@ -2,20 +2,6 @@
 Sample component user profile for a banking app
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.
 
-## Dependencies
-Install the following dependencies before running the app: 
-1. [Angular Material](https://material.angular.io/)
-```
-ng add @angular/material
-```
-2. [Bootstrap](https://getbootstrap.com/)
-```
-npm install bootstrap
-```
-3. [Angular in-memory-web-api](https://github.com/angular/in-memory-web-api)
-```
-npm install angular-in-memory-web-api --save
-```
 
 ## Development server
 
